@@ -344,6 +344,42 @@ Accessibility is architectural, not polish:
 
 Do not claim WCAG conformance or assistive-technology pass solely from Axe.
 
+## Visual design and product-quality acceptance
+
+Functional, secure, and accessible is necessary but not sufficient. The finished product must also feel intentional, welcoming, visually coherent, professionally designed, and portfolio-grade—not like a barebones admin panel, generic generated dashboard, component-library demo, or developer scaffold.
+
+Before broad styling changes, inspect the rendered current product at mobile and desktop widths. Preserve visual behavior that is already strong. Where the direction is weak or inconsistent, define a short visual brief and implement one coherent system rather than applying isolated decoration.
+
+The visual system must:
+
+- suit a trusted everyday household tool: calm, warm, clear, capable, and easy to understand at a glance;
+- establish deliberate semantic tokens for color, typography, spacing, geometry, borders, elevation, and motion instead of scattered values;
+- use strong hierarchy and comfortable density so Today, Chores, Groceries, Pet Care, Guest Access, status, and the next action are immediately legible;
+- use one coherent icon treatment and avoid unlabeled icon-only controls;
+- include polished default, hover, focus, active, disabled, loading, empty, success, warning, error, offline, queued, conflict, expired, and revoked states;
+- intentionally design light and dark presentation only if the audited product already supports both; do not add a theme framework merely for novelty;
+- recompose cleanly from 320 CSS pixels through desktop instead of merely shrinking desktop cards;
+- use restrained motion for orientation and feedback, with complete reduced-motion alternatives;
+- avoid gratuitous gradients, glassmorphism, excessive rounding, oversized empty hero areas, decorative charts, low-contrast text, animation noise, and repetitive card grids that obscure information structure;
+- remain attractive under long labels, missing data, large lists, validation errors, offline state, 200% text zoom, 400% reflow, forced colors, and keyboard focus;
+- use only repository-safe assets with documented provenance and no third-party runtime fonts, scripts, trackers, or image dependencies.
+
+Use real rendered evidence. Add or update deterministic screenshots only when the repository's public-boundary rules permit them. Exercise the built app in Chromium and Firefox at representative mobile and desktop viewports. Perform a final visual QA pass for hierarchy, alignment, spacing, typography, state completeness, responsive composition, consistency, and obvious generic/unfinished UI. Fix material visual defects before completion; do not declare success from source inspection alone.
+
+## Completion handoff to Imperator
+
+Do not add an AI assistant, Imperator client, Hermes agent, callback, webhook, remote-control endpoint, credential, or private integration to the runtime application. The safe connection to Imperator is the repository workflow.
+
+When implementation is complete and remote publication is authorized by the active task:
+
+1. Work only on the named Claude branch; never push directly to `main`.
+2. Push verified checkpoints to that branch and open one pull request into `main`.
+3. Ensure required GitHub checks run against the final commit and correct every in-scope failure without weakening gates.
+4. Return the pull-request URL, final commit SHA, exact CI conclusions and run URLs, verification commands and results, visual QA evidence, changed-file summary, migration/rollback notes, and all genuinely manual accessibility checks still requiring Marco or Imperator.
+5. Leave deployment, merge, repository settings, credentials, real household data, Home Assistant connection, and runtime activation untouched unless separately and exactly approved.
+
+Imperator reviews the pull request and proof package, performs independent acceptance, and handles any later protected release or integration action. A message saying work is complete without a reviewable branch, pull request, and verification evidence is not a handoff.
+
 ## Security and privacy requirements
 
 - Default deny and least privilege at every route and storage boundary.
