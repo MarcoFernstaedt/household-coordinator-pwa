@@ -1,0 +1,16 @@
+node_modules/
+dist/
+dist-server/
+coverage/
+playwright-report/
+test-results/
+*.log
+*.db
+*.db-shm
+*.db-wal
+.env
+.env.*
+!.env.example
+.DS_Store
+.idea/
+.vscode/

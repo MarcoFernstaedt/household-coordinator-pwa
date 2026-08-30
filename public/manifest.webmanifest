@@ -1,0 +1,13 @@
+{
+  "name": "Household Coordinator",
+  "short_name": "Household",
+  "description": "Privacy-first chores, groceries, and routine pet-care coordination.",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f4f1e8",
+  "theme_color": "#17372f",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
