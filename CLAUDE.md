@@ -126,10 +126,11 @@ For unborn history, inspect every untracked file before staging. Stage exact pat
 6. Create GitHub repository PRIVATE first; configure professional description/topics, issues on, wiki off.
 7. Push `main` without force; verify server SHA and default branch.
 8. Require hosted CI success on that exact SHA.
-9. Enable/verify private vulnerability reporting, Dependabot, secret scanning, and push protection where available.
-10. Require GitHub-reported zero open high/critical Dependabot and zero open secret alerts.
-11. Only then change visibility to PUBLIC.
-12. Verify anonymous repository/README/LICENSE/security pages, branch SHA/tree, advertised refs, clean clone, scans, and exact-SHA CI.
+9. Enable and verify private vulnerability reporting and Dependabot; require zero open high/critical Dependabot alerts and zero local current/history/package scan findings.
+10. If GitHub secret scanning cannot run while the repository is private, change visibility to PUBLIC only for a fail-closed hosted security verification window.
+11. Immediately enable and query GitHub secret scanning and push protection. If either is unavailable or any secret alert exists, make the repository PRIVATE again, verify the rollback, and stop.
+12. Continue public release only after GitHub reports zero open secret alerts.
+13. Verify anonymous repository/README/LICENSE/security pages, branch SHA/tree, advertised refs, clean clone, scans, and exact-SHA CI.
 
 No private deployment, Home Assistant mutation, service restart, runtime cutover, merge, or force push is authorized.
 

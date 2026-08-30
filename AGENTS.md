@@ -137,10 +137,11 @@ Current source, build output, package inventory, staged candidate, exported exac
 4. Correct findings under TDD, rerun all affected/governing gates, refreeze, and re-review.
 5. Create one clean root commit with a GitHub noreply author/committer address.
 6. Create the GitHub repository PRIVATE first; push only `main` without force and verify exact server SHA/default branch/visibility.
-7. Require hosted CI success on the exact SHA. Enable and verify vulnerability reporting, Dependabot, secret scanning, and push protection where available.
-8. Require GitHub itself to report zero open high/critical Dependabot alerts and zero open secret alerts.
-9. Only then change visibility to PUBLIC.
-10. Verify anonymously: repository, README, license, security policy, branch SHA/tree, advertised refs, clean clone, current/history scans, and exact-SHA CI.
+7. Require hosted CI success on the exact SHA. Enable and verify vulnerability reporting and Dependabot; require zero open high/critical Dependabot alerts and zero local current/history/package scan findings.
+8. If GitHub secret scanning cannot run while the repository is private, change visibility to PUBLIC only for a fail-closed hosted security verification window.
+9. Immediately enable and query GitHub secret scanning and push protection. If either is unavailable or any secret alert exists, make the repository PRIVATE again, verify the rollback, and stop.
+10. Continue public release only after GitHub reports zero open secret alerts.
+11. Verify anonymously: repository, README, license, security policy, branch SHA/tree, advertised refs, clean clone, current/history scans, and exact-SHA CI.
 
 No deployment, service restart, Home Assistant mutation, private runtime change, or force push is authorized by this repository contract.
 
